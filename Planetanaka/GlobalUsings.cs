@@ -1,0 +1,10 @@
+﻿global using CommunityToolkit.Maui.Converters;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using Planetanaka.Constants;
+global using Planetanaka.Models;
+global using Planetanaka.Services;
+global using Planetanaka.ViewModels;
+global using Planetanaka.Views;
+global using System.Globalization;
+global using System.Net.Http.Json;

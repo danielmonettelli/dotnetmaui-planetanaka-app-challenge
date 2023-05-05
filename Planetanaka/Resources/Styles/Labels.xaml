@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:FontIcons="clr-namespace:Planetanaka.CodeFontIcons">
+
+    <!--#region Headline1-->
+
+    <!--#endregion-->
+
+
+    <!--#region Headline2-->
+
+    <!--#endregion-->
+
+
+    <!--#region Headline3-->
+
+    <!--#endregion-->
+
+
+    <!--#region Headline4-->
+    <Style
+        x:Key="TxtHeadline4_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Kanit#500" />
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="TextColor" Value="{StaticResource col_sec}" />
+    </Style>
+    <!--#endregion-->
+
+
+    <!--#region Headline5-->
+    <Style
+        x:Key="TxtHeadline5_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Kanit#500" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="TextColor" Value="{StaticResource col_sec}" />
+    </Style>
+    <!--#endregion-->
+
+
+    <!--#region Headline6-->
+    <Style
+        x:Key="TxtHeadline6_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Kanit#500" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{StaticResource col_sec}" />
+    </Style>
+
+    <Style
+        x:Key="TxtHeadline6_2"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#d9d9d9" />
+        <Setter Property="FontFamily" Value="Kanit#500" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{StaticResource col_prim}" />
+    </Style>
+    <!--#endregion-->
+
+
+    <!--#region Title-->
+
+    <!--#endregion-->
+
+
+    <!--#region Subtitle1-->
+
+    <!--#endregion-->
+
+
+    <!--#region Subtitle2-->
+
+    <!--#endregion-->
+
+
+    <!--#region Body1-->
+    <Style
+        x:Key="TxtBody1_1"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Kanit#400" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource col_ter}" />
+    </Style>
+    <!--#endregion-->
+
+
+    <!--#region Body2-->
+
+    <!--#endregion-->
+
+
+    <!--#region Button-->
+
+    <!--#endregion-->
+
+
+    <!--#region Caption-->
+
+    <!--#endregion-->
+
+
+    <!--#region Overline1-->
+
+    <!--#endregion-->
+
+
+    <!--#region Overline2-->
+
+    <!--#endregion-->
+
+</ResourceDictionary>

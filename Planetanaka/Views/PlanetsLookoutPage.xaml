@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Planetanaka.Views.PlanetsLookoutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:model="clr-namespace:Planetanaka.Models"
+    xmlns:viewModel="clr-namespace:Planetanaka.ViewModels"
+    x:DataType="viewModel:PlanetViewModel"
+    BackgroundColor="{StaticResource col_prim}"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid
+        Padding="16,10"
+        RowDefinitions="Auto, 20, Auto, 24, *, 24, Auto, 4, Auto">
+
+        <Label
+            Grid.Row="0"
+            Style="{StaticResource TxtHeadline5_1}"
+            Text="DISCOVER THE INFINITE OF THE UNIVERSE" />
+
+        <CollectionView
+            Grid.Row="2"
+            ItemsSource="{Binding Planets}"
+            SelectedItem="{Binding SelectedPlanet}"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout
+                    ItemSpacing="40"
+                    Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Planet">
+                    <Grid
+                        RowDefinitions="104, Auto"
+                        RowSpacing="10"
+                        WidthRequest="104">
+
+                        <Border
+                            Grid.Row="0"
+                            BackgroundColor="Transparent"
+                            Stroke="{StaticResource col_sec}"
+                            StrokeShape="{RoundRectangle CornerRadius='14'}"
+                            StrokeThickness="2">
+                            <Image
+                                HeightRequest="75"
+                                Source="{Binding Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=4}"
+                                WidthRequest="75" />
+                        </Border>
+
+                        <Label
+                            Grid.Row="1"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource TxtHeadline6_1}"
+                            Text="{Binding Name_Planet}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Image
+            x:Name="imgBigPlanet"
+            Grid.Row="4"
+            HorizontalOptions="StartAndExpand"
+            Source="{Binding SelectedPlanet.Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=10}"
+            TranslationX="-130" />
+
+        <Label
+            x:Name="lblNamePlanet"
+            Grid.Row="6"
+            Style="{StaticResource TxtHeadline4_1}"
+            Text="{Binding SelectedPlanet.Name_Planet}" />
+
+        <Label
+            x:Name="lblDescriptionPlanet"
+            Grid.Row="8"
+            Style="{StaticResource TxtBody1_1}"
+            Text="{Binding SelectedPlanet.Description_Planet}" />
+
+        <Border
+            x:Name="mask"
+            Grid.RowSpan="9"
+            Margin="-20"
+            BackgroundColor="#d9d9d9">
+            <VerticalStackLayout
+                Padding="20"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Image
+                    x:Name="imgBrand"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="icon_brand.png"
+                    VerticalOptions="Center"
+                    WidthRequest="100">
+                    <Image.Behaviors>
+                        <mct:IconTintColorBehavior TintColor="{StaticResource col_prim}" />
+                    </Image.Behaviors>
+                </Image>
+                <Label
+                    Style="{StaticResource TxtHeadline6_1}"
+                    Text="Loading..."
+                    TextColor="{StaticResource col_prim}"
+                    TranslationX="12" />
+            </VerticalStackLayout>
+        </Border>
+
+    </Grid>
+
+</ContentPage>

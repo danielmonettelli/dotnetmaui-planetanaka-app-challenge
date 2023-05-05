@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Planetanaka.Views.WelcomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:Planetanaka.ViewModels"
+    x:DataType="viewModel:WelcomeViewModel"
+    BackgroundColor="{StaticResource col_prim}"
+    Shell.NavBarIsVisible="False">
+
+    <Grid
+        Padding="16,0,16,60"
+        RowDefinitions="180, *, Auto, 18, Auto, 26, 50 ">
+
+        <Image
+            x:Name="planetEarth"
+            Grid.Row="0"
+            Margin="-16,0"
+            Aspect="AspectFit"
+            Scale="3"
+            Source="planet_earth.png"
+            TranslationX="30"
+            TranslationY="-20" />
+
+        <Label
+            Grid.Row="2"
+            Style="{StaticResource TxtHeadline5_1}"
+            Text="SPACE EXPLORATION" />
+
+        <Label
+            Grid.Row="4"
+            Style="{StaticResource TxtBody1_1}"
+            Text="Galaxies are categorized according to their visual mophology as elliptical, spiral, or irregular. Many galaxies are thought to have supermassive black holes at their centers" />
+
+        <Button
+            Grid.Row="6"
+            Padding="20,0"
+            Command="{Binding StartExplorationCommand}"
+            HorizontalOptions="Start"
+            Style="{StaticResource TxtHeadline6_2}"
+            Text="START EPLORATION"
+            WidthRequest="218" />
+
+    </Grid>
+</ContentPage>
