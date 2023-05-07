@@ -16,7 +16,6 @@ public partial class WelcomeViewModel : BaseViewModel
                     { 0, 0.5, new Animation(v => PlanetEarth.Rotation = v, 0, 180, Easing.CubicIn) },
                     { 0.5, 1, new Animation(v => PlanetEarth.Rotation = v, 180, 360, Easing.CubicOut) }
                 }.Commit(PlanetEarth, "PlanetEarthAnimation", length: 8000, repeat: () => true);
-
             }
         }
         catch (Exception ex)
