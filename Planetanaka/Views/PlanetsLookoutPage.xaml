@@ -29,15 +29,20 @@
 
     <Grid
         Padding="16,10"
-        RowDefinitions="Auto, 20, Auto, 24, *, 24, Auto, 4, Auto">
+        RowDefinitions="Auto, Auto, 20, Auto, 24, *, 24, Auto, 4, Auto">
 
         <Label
             Grid.Row="0"
             Style="{StaticResource TxtHeadline5_1}"
-            Text="DISCOVER THE INFINITE OF THE UNIVERSE" />
+            Text="DISCOVER THE INFINITE" />
+        <Label
+            Grid.Row="1"
+            Style="{StaticResource TxtHeadline5_1}"
+            Text="OF THE UNIVERSE" />
 
         <CollectionView
-            Grid.Row="2"
+            Grid.Row="3"
+            HeightRequest="145"
             ItemsSource="{Binding Planets}"
             SelectedItem="{Binding SelectedPlanet}"
             SelectionMode="Single">
@@ -77,28 +82,29 @@
 
         <Image
             x:Name="imgBigPlanet"
-            Grid.Row="4"
-            HorizontalOptions="StartAndExpand"
+            Grid.Row="5"
+            Margin="-16,0,0,0"
+            HorizontalOptions="Start"
             Source="{Binding SelectedPlanet.Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=10}"
-            TranslationX="-130" />
+            TranslationX="-60" />
 
         <Label
             x:Name="lblNamePlanet"
-            Grid.Row="6"
+            Grid.Row="7"
             Style="{StaticResource TxtHeadline4_1}"
             Text="{Binding SelectedPlanet.Name_Planet}" />
 
         <Label
             x:Name="lblDescriptionPlanet"
-            Grid.Row="8"
+            Grid.Row="9"
             Style="{StaticResource TxtBody1_1}"
             Text="{Binding SelectedPlanet.Description_Planet}" />
 
         <Border
             x:Name="mask"
-            Grid.RowSpan="9"
+            Grid.RowSpan="10"
             Margin="-20"
-            BackgroundColor="#d9d9d9">
+            BackgroundColor="{StaticResource col_prim}">
             <VerticalStackLayout
                 Padding="20"
                 HorizontalOptions="CenterAndExpand"
@@ -109,15 +115,11 @@
                     HorizontalOptions="Center"
                     Source="icon_brand.png"
                     VerticalOptions="Center"
-                    WidthRequest="100">
-                    <Image.Behaviors>
-                        <mct:IconTintColorBehavior TintColor="{StaticResource col_prim}" />
-                    </Image.Behaviors>
-                </Image>
+                    WidthRequest="100" />
                 <Label
                     Style="{StaticResource TxtHeadline6_1}"
                     Text="Loading..."
-                    TextColor="{StaticResource col_prim}"
+                    TextColor="#d9d9d9"
                     TranslationX="12" />
             </VerticalStackLayout>
         </Border>
