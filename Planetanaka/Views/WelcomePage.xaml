@@ -10,17 +10,16 @@
 
     <Grid
         Padding="16,0,16,60"
-        RowDefinitions="180, *, Auto, 18, Auto, 26, 50 ">
+        RowDefinitions="80*, 20*, Auto, 18, Auto, 26, 50 ">
 
         <Image
             x:Name="planetEarth"
             Grid.Row="0"
             Margin="-16,0"
-            Aspect="AspectFit"
-            Scale="3"
+            HorizontalOptions="StartAndExpand"
+            Scale="1.7"
             Source="planet_earth.png"
-            TranslationX="30"
-            TranslationY="-20" />
+            TranslationY="-70" />
 
         <Label
             Grid.Row="2"
