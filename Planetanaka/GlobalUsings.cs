@@ -1,6 +1,9 @@
-﻿global using CommunityToolkit.Maui.Converters;
+﻿global using CommunityToolkit.Maui;
+global using CommunityToolkit.Maui.Converters;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
+global using FFImageLoading.Maui;
+global using Microsoft.Extensions.Logging;
 global using Planetanaka.Constants;
 global using Planetanaka.Models;
 global using Planetanaka.Services;

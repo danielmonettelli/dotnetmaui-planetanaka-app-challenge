@@ -9,7 +9,7 @@ public partial class PlanetViewModel : BaseViewModel
     private Image imgBrand;
 
     [ObservableProperty]
-    private Image imgBigPlanet;
+    private CachedImage imgBigPlanet;
 
     [ObservableProperty]
     private Label lblNamePlanet;

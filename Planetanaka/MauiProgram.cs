@@ -1,19 +1,18 @@
-﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
-
-namespace Planetanaka;
+﻿namespace Planetanaka;
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
         builder.UseMauiApp<App>()
-        .UseMauiCommunityToolkit()
         .ConfigureFonts(fonts =>
         {
             fonts.AddFont("Kanit-Regular.ttf", "Kanit#400");
             fonts.AddFont("Kanit-Medium.ttf", "Kanit#500");
-        });
+        })
+        .UseMauiCommunityToolkit()
+        .UseFFImageLoading();
+
 
         builder.Services.AddSingleton<IPlanetService, PlanetService>();
         builder.Services.AddTransient<PlanetViewModel>();

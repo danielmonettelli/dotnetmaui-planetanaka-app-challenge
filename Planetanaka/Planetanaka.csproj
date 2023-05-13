@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
@@ -49,12 +49,16 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\icon_brand.svg" />
+	  <None Remove="Resources\Images\loading.png" />
 	  <None Remove="Resources\Images\planet_earth.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+		<PackageReference Include="FFImageLoadingCompat" Version="3.0.0" />
+		<PackageReference Include="FFImageLoadingCompat.Maui" Version="3.0.0" />
+		<PackageReference Include="FFImageLoadingCompat.Transformations" Version="3.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
