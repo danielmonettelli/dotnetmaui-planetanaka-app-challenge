@@ -76,19 +76,28 @@ public partial class PlanetViewModel : BaseViewModel
                       {
                           ImgBigPlanet.Rotation = 720 - v * 720;
                           ImgBigPlanet.Scale = 1 - v;
+                          ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{oldValue.Image_Planet}@10x.png"));
                       }, 0, 1, Easing.CubicIn, finished: ()=>
                       {
                           ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{newValue.Image_Planet}@10x.png"));
                       })
                     },
-                    { 0, 0.5, new Animation(v => LblNamePlanet.Opacity = v, 1, 0, Easing.SinIn,finished:()=>
+                    { 0, 0.5, new Animation(v =>
+                      {
+                          LblNamePlanet.Opacity = v;
+                          LblNamePlanet.Text= oldValue.Name_Planet;
+                      },1, 0, Easing.SinIn,finished:()=>
                       {
                           LblNamePlanet.Text= newValue.Name_Planet;
                       })
                     },
-                    { 0, 0.5, new Animation(v => LblDescriptionPlanet.Opacity = v, 1, 0, Easing.SinIn, finished:()=>
+                    { 0, 0.5, new Animation(v =>
                       {
-                           LblDescriptionPlanet.Text = newValue.Description_Planet;
+                          LblDescriptionPlanet.Opacity = v;
+                          LblDescriptionPlanet.Text= oldValue.Description_Planet;
+                      },1, 0, Easing.SinIn, finished:()=>
+                      {
+                          LblDescriptionPlanet.Text = newValue.Description_Planet;
                       })
                     }
                 }.Commit(Mask, "MixAnimationsBefore", length: 2500);
