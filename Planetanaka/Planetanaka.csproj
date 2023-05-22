@@ -56,9 +56,9 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-		<PackageReference Include="FFImageLoadingCompat" Version="3.0.0" />
-		<PackageReference Include="FFImageLoadingCompat.Maui" Version="3.0.0" />
-		<PackageReference Include="FFImageLoadingCompat.Transformations" Version="3.0.0" />
+		<PackageReference Include="FFImageLoadingCompat" Version="0.1.1" />
+		<PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
+		<PackageReference Include="FFImageLoadingCompat.Transformations" Version="0.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
