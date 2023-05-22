@@ -28,18 +28,38 @@ public partial class PlanetViewModel : BaseViewModel
     {
         try
         {
-            if (value is not null)
+            Animation imgBrandAnimation = new()
             {
-                new Animation
-                {
-                     { 0, 1, new Animation(v => ImgBrand.Rotation = v, 0, 360)}
-                }.Commit(ImgBrand, "ImgBrandAnimation", length: 2000, repeat: () => true);
-            }
+                 { 0, 1, new Animation(v => ImgBrand.Rotation = v, 0, 360)}
+            };
+            imgBrandAnimation.Commit(ImgBrand, "ImgBrandAnimation", length: 2000, repeat: () => true);
         }
         catch (Exception ex)
         {
             Console.WriteLine
                 ($"An error has occurred in OnImgBrandChanged():" +
+                $" {ex.Message}");
+        }
+    }
+
+    private void AbortLoadingAnimation()
+    {
+        try
+        {
+            ImgBrand.AbortAnimation("ImgBrandAnimation");
+
+            new Animation
+            {
+                { 0, 1, new Animation(v => Mask.Opacity = v, 1, 0, Easing.SinIn) },
+            }.Commit(Mask, "MaskAnimation", length: 500, finished: (v, c) =>
+            {
+                Mask.IsVisible = false;
+            });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine
+                ($"An error has occurred in AbortLoadingAnimation():" +
                 $" {ex.Message}");
         }
     }
@@ -50,7 +70,6 @@ public partial class PlanetViewModel : BaseViewModel
         {
             if (oldValue is not null)
             {
-                //ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{oldValue.Image_Planet}" + "@10x.png"));
                 new Animation
                 {
                     { 0, 0.5, new Animation(v =>
@@ -95,18 +114,6 @@ public partial class PlanetViewModel : BaseViewModel
                     }
                 }.Commit(Mask, "MixAnimationsAfter", length: 2500);
             }
-            else
-            {
-                ImgBrand.AbortAnimation("ImgBrandAnimation");
-
-                new Animation
-                {
-                    { 0, 1, new Animation(v => Mask.Opacity = v, 1, 0, Easing.SinIn) },
-                }.Commit(Mask, "MaskAnimation", length: 500, finished: (v, c) =>
-                {
-                    Mask.IsVisible = false;
-                });
-            }
         }
         catch (Exception ex)
         {
@@ -127,17 +134,19 @@ public partial class PlanetViewModel : BaseViewModel
 
     private async Task InitializePlanetsAsync()
     {
-        try
+        Planets = await _planetService.GetPlanetsAsync();
+
+        if (Planets is not null)
         {
-            IsBusy = true;
-
-            Planets = (List<Planet>)await _planetService.GetPlanetsAsync();
-
             SelectedPlanet = Planets.FirstOrDefault();
+
+            AbortLoadingAnimation();
         }
-        finally
+        else
         {
-            IsBusy = false;
+            await Task.Delay(2000);
+
+            AbortLoadingAnimation();
         }
     }
 

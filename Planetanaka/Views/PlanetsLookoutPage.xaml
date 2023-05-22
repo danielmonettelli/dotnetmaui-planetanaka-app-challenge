@@ -111,6 +111,7 @@
             Style="{StaticResource TxtBody1_1}"
             Text="{Binding SelectedPlanet.Description_Planet}" />
 
+        <!--#region Mask-->
         <Border
             x:Name="mask"
             Grid.RowSpan="10"
@@ -135,7 +136,7 @@
                     TranslationX="12" />
             </VerticalStackLayout>
         </Border>
-
+        <!--#endregion-->
     </Grid>
 
 </ContentPage>

@@ -2,5 +2,5 @@
 
 public interface IPlanetService
 {
-    Task<IEnumerable<Planet>> GetPlanetsAsync();
+    Task<List<Planet>> GetPlanetsAsync();
 }
