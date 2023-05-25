@@ -3,7 +3,7 @@
     x:Class="Planetanaka.Views.PlanetsLookoutPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+    xmlns:ffImageLoading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
     xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:model="clr-namespace:Planetanaka.Models"
     xmlns:viewModel="clr-namespace:Planetanaka.ViewModels"
@@ -30,24 +30,20 @@
 
     <Grid
         Padding="16,10"
-        ColumnDefinitions="80*, 20*"
         RowDefinitions="Auto, Auto, 20, Auto, 24, *, 24, Auto, 4, Auto">
 
         <Label
             Grid.Row="0"
-            Grid.ColumnSpan="2"
             Style="{StaticResource TxtHeadline5_1}"
             Text="DISCOVER THE INFINITE" />
 
         <Label
             Grid.Row="1"
-            Grid.ColumnSpan="2"
             Style="{StaticResource TxtHeadline5_1}"
             Text="OF THE UNIVERSE" />
 
         <CollectionView
             Grid.Row="3"
-            Grid.ColumnSpan="2"
             HeightRequest="145"
             ItemsSource="{Binding Planets}"
             SelectedItem="{Binding SelectedPlanet}"
@@ -70,7 +66,7 @@
                             Stroke="{StaticResource col_sec}"
                             StrokeShape="{RoundRectangle CornerRadius='14'}"
                             StrokeThickness="2">
-                            <ffimageloading:CachedImage
+                            <ffImageLoading:CachedImage
                                 HeightRequest="75"
                                 LoadingPlaceholder="loading.png"
                                 Source="{Binding Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=4}"
@@ -87,27 +83,24 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <ffimageloading:CachedImage
+        <ffImageLoading:CachedImage
             x:Name="imgBigPlanet"
             Grid.Row="5"
-            Grid.Column="0"
-            Aspect="{OnPlatform Android=AspectFill,
-                                Default=AspectFit}"
             HorizontalOptions="StartAndExpand"
             Source="{Binding SelectedPlanet.Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=10}"
-            TranslationX="-70" />
+            TranslationX="-70"
+            WidthRequest="{OnPlatform Android=350,
+                                      iOS=350}" />
 
         <Label
             x:Name="lblNamePlanet"
             Grid.Row="7"
-            Grid.ColumnSpan="2"
             Style="{StaticResource TxtHeadline4_1}"
             Text="{Binding SelectedPlanet.Name_Planet}" />
 
         <Label
             x:Name="lblDescriptionPlanet"
             Grid.Row="9"
-            Grid.ColumnSpan="2"
             Style="{StaticResource TxtBody1_1}"
             Text="{Binding SelectedPlanet.Description_Planet}" />
 
@@ -115,7 +108,6 @@
         <Border
             x:Name="mask"
             Grid.RowSpan="10"
-            Grid.ColumnSpan="2"
             Margin="-20"
             BackgroundColor="{StaticResource col_prim}">
             <VerticalStackLayout
@@ -129,6 +121,7 @@
                     Source="icon_brand.png"
                     VerticalOptions="Center"
                     WidthRequest="100" />
+
                 <Label
                     Style="{StaticResource TxtHeadline6_1}"
                     Text="Loading..."
