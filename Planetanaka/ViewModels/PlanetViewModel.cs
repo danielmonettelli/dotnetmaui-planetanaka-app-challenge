@@ -97,7 +97,7 @@ public partial class PlanetViewModel : BaseViewModel
                           LblDescriptionPlanet.Text = newValue.Description_Planet;
                       })
                     }
-                }.Commit(Mask, "MixAnimationsBefore", length: 2500);
+                }.Commit(ImgBigPlanet, "MixAnimationsBefore", length: 2500);
 
 
                 new Animation
@@ -118,7 +118,38 @@ public partial class PlanetViewModel : BaseViewModel
                           LblDescriptionPlanet.Opacity = v;
                       }, 0, 1, Easing.SinOut)
                     }
-                }.Commit(Mask, "MixAnimationsAfter", length: 2500);
+                }.Commit(ImgBigPlanet, "MixAnimationsAfter", length: 2500);
+            }
+            else
+            {
+                new Animation
+                {
+                    { 0, 0.5, new Animation(v =>
+                      {
+                          ImgBigPlanet.Rotation = v * 720;
+                          ImgBigPlanet.Scale = v;
+                      }, 0, 1, Easing.CubicOut, finished: ()=>
+                      {
+                          ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{newValue.Image_Planet}@10x.png"));
+                      })
+                    },
+                    { 0, 0.5, new Animation(v =>
+                      {
+                          LblNamePlanet.Opacity = v;
+                      },0, 1, Easing.SinInOut,finished:()=>
+                      {
+                          LblNamePlanet.Text= newValue.Name_Planet;
+                      })
+                    },
+                    { 0, 0.5, new Animation(v =>
+                      {
+                          LblDescriptionPlanet.Opacity = v;
+                      },0, 1, Easing.SinInOut, finished:()=>
+                      {
+                          LblDescriptionPlanet.Text = newValue.Description_Planet;
+                      })
+                    }
+                }.Commit(ImgBigPlanet, "MixAnimationsInitial", length: 3000);
             }
         }
         catch (Exception ex)
