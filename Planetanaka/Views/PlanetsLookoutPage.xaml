@@ -43,6 +43,7 @@
             Text="OF THE UNIVERSE" />
 
         <CollectionView
+            x:Name="collectionPlanets"
             Grid.Row="3"
             HeightRequest="145"
             ItemsSource="{Binding Planets}"

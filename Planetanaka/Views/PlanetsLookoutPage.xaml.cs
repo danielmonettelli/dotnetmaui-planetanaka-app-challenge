@@ -8,6 +8,7 @@ public partial class PlanetsLookoutPage : ContentPage
 
         BindingContext = vm;
 
+        vm.CollectionPlanets = collectionPlanets;
         vm.Mask = mask;
         vm.ImgBrand = imgBrand;
         vm.ImgBigPlanet = imgBigPlanet;

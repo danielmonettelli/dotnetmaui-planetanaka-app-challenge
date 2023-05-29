@@ -3,6 +3,9 @@
 public partial class PlanetViewModel : BaseViewModel
 {
     [ObservableProperty]
+    private CollectionView collectionPlanets;
+
+    [ObservableProperty]
     private Border mask;
 
     [ObservableProperty]
@@ -70,30 +73,20 @@ public partial class PlanetViewModel : BaseViewModel
         {
             if (oldValue is not null)
             {
+
                 new Animation
                 {
                     { 0, 0.5, new Animation(v =>
                       {
+                          CollectionPlanets.SelectionMode = SelectionMode.None;
                           ImgBigPlanet.Rotation = 720 - v * 720;
                           ImgBigPlanet.Scale = 1 - v;
+                          LblNamePlanet.Opacity = 1 - v;
+                          LblDescriptionPlanet.Opacity = 1 - v;
                       }, 0, 1, Easing.CubicIn, finished: ()=>
                       {
                           ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{newValue.Image_Planet}@10x.png"));
-                      })
-                    },
-                    { 0, 0.5, new Animation(v =>
-                      {
-                          LblNamePlanet.Opacity = v;
-                      },1, 0, Easing.SinIn,finished:()=>
-                      {
                           LblNamePlanet.Text= newValue.Name_Planet;
-                      })
-                    },
-                    { 0, 0.5, new Animation(v =>
-                      {
-                          LblDescriptionPlanet.Opacity = v;
-                      },1, 0, Easing.SinIn, finished:()=>
-                      {
                           LblDescriptionPlanet.Text = newValue.Description_Planet;
                       })
                     }
@@ -106,47 +99,34 @@ public partial class PlanetViewModel : BaseViewModel
                       {
                           ImgBigPlanet.Rotation = v * 720;
                           ImgBigPlanet.Scale = v;
-                      }, 0, 1, Easing.CubicOut)
-                    },
-                    { 0.5, 1, new Animation(v =>
-                      {
                           LblNamePlanet.Opacity = v;
-                      }, 0, 1, Easing.SinOut)
-                    },
-                    { 0.5, 1, new Animation(v =>
-                      {
                           LblDescriptionPlanet.Opacity = v;
-                      }, 0, 1, Easing.SinOut)
-                    }
+                      }, 0, 1, Easing.CubicOut, finished:()=>
+                      {
+                          CollectionPlanets.SelectionMode = SelectionMode.Single;
+                      })
+                    },
                 }.Commit(ImgBigPlanet, "MixAnimationsAfter", length: 2500);
+
             }
             else
             {
+
                 new Animation
                 {
                     { 0, 0.5, new Animation(v =>
                       {
+                          CollectionPlanets.SelectionMode = SelectionMode.None;
                           ImgBigPlanet.Rotation = v * 720;
                           ImgBigPlanet.Scale = v;
+                          LblNamePlanet.Opacity = v;
+                          LblDescriptionPlanet.Opacity = v;
                       }, 0, 1, Easing.CubicOut, finished: ()=>
                       {
                           ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{newValue.Image_Planet}@10x.png"));
-                      })
-                    },
-                    { 0, 0.5, new Animation(v =>
-                      {
-                          LblNamePlanet.Opacity = v;
-                      },0, 1, Easing.SinInOut,finished:()=>
-                      {
                           LblNamePlanet.Text= newValue.Name_Planet;
-                      })
-                    },
-                    { 0, 0.5, new Animation(v =>
-                      {
-                          LblDescriptionPlanet.Opacity = v;
-                      },0, 1, Easing.SinInOut, finished:()=>
-                      {
                           LblDescriptionPlanet.Text = newValue.Description_Planet;
+                          CollectionPlanets.SelectionMode = SelectionMode.Single;
                       })
                     }
                 }.Commit(ImgBigPlanet, "MixAnimationsInitial", length: 3000);
