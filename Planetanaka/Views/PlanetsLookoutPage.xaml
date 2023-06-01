@@ -32,7 +32,7 @@
     </ContentPage.Resources>
 
     <Grid
-        Padding="16,10"
+        Margin="5,10"
         RowDefinitions="Auto, Auto, 20, Auto, 24, *, 24, Auto, 4, Auto">
 
         <Label
@@ -51,10 +51,11 @@
             HeightRequest="145"
             ItemsSource="{Binding Planets}"
             SelectedItem="{Binding SelectedPlanet}"
+            SelectionChanged="collectionPlanets_SelectionChanged"
             SelectionMode="Single">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout
-                    ItemSpacing="40"
+                    ItemSpacing="16"
                     Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
@@ -83,9 +84,18 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!--<Image
+            x:Name="imgBigPlanet"
+            Grid.Row="5"
+            Margin="-5,0"
+            HorizontalOptions="StartAndExpand"
+            Source="{Binding SelectedPlanet.Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=10}"
+            TranslationX="-45" />-->
+
         <ffImageLoading:CachedImage
             x:Name="imgBigPlanet"
             Grid.Row="5"
+            Margin="-5,0"
             HorizontalOptions="StartAndExpand"
             Source="{Binding SelectedPlanet.Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=10}"
             TranslationX="-70"
