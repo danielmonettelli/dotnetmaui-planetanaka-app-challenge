@@ -12,7 +12,7 @@
     Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
-        <Style TargetType="Grid">
+        <Style TargetType="Border">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup x:Name="CommonStates">
@@ -20,6 +20,9 @@
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
                                 <Setter Property="BackgroundColor" Value="Transparent" />
+                                <Setter Property="Stroke" Value="{StaticResource col_sec}" />
+                                <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=14}" />
+                                <Setter Property="StrokeThickness" Value="2" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -56,30 +59,26 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Planet">
-                    <Grid
-                        RowDefinitions="104, Auto"
-                        RowSpacing="10"
-                        WidthRequest="104">
+                    <Border
+                        Padding="5,15"
+                        BackgroundColor="Transparent"
+                        WidthRequest="120">
 
-                        <Border
-                            Grid.Row="0"
-                            BackgroundColor="Transparent"
-                            Stroke="{StaticResource col_sec}"
-                            StrokeShape="{RoundRectangle CornerRadius='14'}"
-                            StrokeThickness="2">
+                        <VerticalStackLayout Spacing="10">
+
                             <ffImageLoading:CachedImage
                                 HeightRequest="75"
                                 LoadingPlaceholder="loading.png"
                                 Source="{Binding Image_Planet, Converter={StaticResource ImageUrlScalingConverter}, ConverterParameter=4}"
                                 WidthRequest="75" />
-                        </Border>
 
-                        <Label
-                            Grid.Row="1"
-                            HorizontalTextAlignment="Center"
-                            Style="{StaticResource TxtHeadline6_1}"
-                            Text="{Binding Name_Planet}" />
-                    </Grid>
+                            <Label
+                                Grid.Row="1"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource TxtHeadline6_1}"
+                                Text="{Binding Name_Planet}" />
+                        </VerticalStackLayout>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

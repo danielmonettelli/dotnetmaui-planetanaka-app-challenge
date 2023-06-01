@@ -73,12 +73,10 @@ public partial class PlanetViewModel : BaseViewModel
         {
             if (oldValue is not null)
             {
-
                 new Animation
                 {
                     { 0, 0.5, new Animation(v =>
                       {
-                          CollectionPlanets.SelectionMode = SelectionMode.None;
                           ImgBigPlanet.Rotation = 720 - v * 720;
                           ImgBigPlanet.Scale = 1 - v;
                           LblNamePlanet.Opacity = 1 - v;
@@ -92,7 +90,6 @@ public partial class PlanetViewModel : BaseViewModel
                     }
                 }.Commit(ImgBigPlanet, "MixAnimationsBefore", length: 2500);
 
-
                 new Animation
                 {
                     { 0.5, 1, new Animation(v =>
@@ -101,22 +98,16 @@ public partial class PlanetViewModel : BaseViewModel
                           ImgBigPlanet.Scale = v;
                           LblNamePlanet.Opacity = v;
                           LblDescriptionPlanet.Opacity = v;
-                      }, 0, 1, Easing.CubicOut, finished:()=>
-                      {
-                          CollectionPlanets.SelectionMode = SelectionMode.Single;
-                      })
+                      }, 0, 1, Easing.CubicOut)
                     },
                 }.Commit(ImgBigPlanet, "MixAnimationsAfter", length: 2500);
-
             }
             else
             {
-
                 new Animation
                 {
                     { 0, 0.5, new Animation(v =>
                       {
-                          CollectionPlanets.SelectionMode = SelectionMode.None;
                           ImgBigPlanet.Rotation = v * 720;
                           ImgBigPlanet.Scale = v;
                           LblNamePlanet.Opacity = v;
@@ -126,7 +117,6 @@ public partial class PlanetViewModel : BaseViewModel
                           ImgBigPlanet.Source = ImageSource.FromUri(new Uri($"https://raw.githubusercontent.com/danielmonettelli/MyResources/main/Planetakuna_Resources/{newValue.Image_Planet}@10x.png"));
                           LblNamePlanet.Text= newValue.Name_Planet;
                           LblDescriptionPlanet.Text = newValue.Description_Planet;
-                          CollectionPlanets.SelectionMode = SelectionMode.Single;
                       })
                     }
                 }.Commit(ImgBigPlanet, "MixAnimationsInitial", length: 3000);
