@@ -1,9 +1,9 @@
 <p align="center">
 <a href="https://github.com/danielmonettelli/netmaui-planetanaka-app-challenge#gh-light-mode-only">
-<img width="200" src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/1696d213602726afb2474fb826357618b1c50f8f/Assets/brand_light.svg#gh-light-mode-only">
+<img width="200" src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/e0ebeb1335fa7875728edcc9b05600c4b8805abb/Assets/brand_light.svg#gh-light-mode-only">
 </a>
 <a href="https://github.com/danielmonettelli/netmaui-planetanaka-app-challenge#gh-dark-mode-only">
-<img width="200" src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/1696d213602726afb2474fb826357618b1c50f8f/Assets/brand_dark.svg#gh-dark-mode-only">
+<img width="200" src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/e0ebeb1335fa7875728edcc9b05600c4b8805abb/Assets/brand_dark.svg#gh-dark-mode-only">
 </a>
 </p>
 
