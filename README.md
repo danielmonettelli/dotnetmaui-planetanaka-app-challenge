@@ -32,6 +32,10 @@
 
 Planetakana is a wonderfully simple mobile app that takes you on a planetary journey, offering modest but captivating animations every time you choose a planet.
 
+## Project in action
+
+https://github.com/danielmonettelli/netmaui-planetanaka-app-challenge/assets/14121125/69e0b922-4a13-4289-9f59-476947d3d298
+
 ## Features
 
 |            | [<img src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/main/Assets/planetanaka.png" width="150">](#features) |
