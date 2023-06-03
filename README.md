@@ -8,8 +8,8 @@
 </p>
 
 <p align="center">
-  <a href="https://www.codacy.com/gh/danielmonettelli/netmaui-planetanaka-app-challenge/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danielmonettelli/netmaui-planetanaka-app-challenge&amp;utm_campaign=Badge_Grade">
-  <img src="https://app.codacy.com/project/badge/Grade/9ca8b20992ef499a8930d4c8b8cebcbf" alt="Codacy Badge">
+  <a href="https://app.codacy.com/gh/danielmonettelli/netmaui-planetanaka-app-challenge/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
+  <img src="https://app.codacy.com/project/badge/Grade/a1bd53b339cc437bb15f257033244a1a" alt="Codacy Badge">
   </a>
   <a href="https://github.com/danielmonettelli/netmaui-planetanaka-app-challenge/actions/workflows/mobile.yml">
   <img src="https://github.com/danielmonettelli/netmaui-planetanaka-app-challenge/actions/workflows/mobile.yml/badge.svg" alt=".NET MAUI CI">
