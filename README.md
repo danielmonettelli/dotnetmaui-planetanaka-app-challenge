@@ -66,9 +66,15 @@ https://github.com/danielmonettelli/netmaui-planetanaka-app-challenge/assets/141
 
 ## 🎨 Creator of the original design
 
-| [<img src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/main/Assets/mickael_guillaume.jpeg" width="150">](https://dribbble.com/mickaeldll) |
+| [<img src="https://raw.githubusercontent.com/danielmonettelli/netmaui-planetanaka-app-challenge/main/Assets/mickael_guillaume.jpeg" width="150">](https://dribbble.com/shots/12161157-Space-Exploration) |
 :---------------------------------------------:|
 | **Mickael Guillaume** |
+
+## 👥 Contributors
+
+| [<img src="https://avatars.githubusercontent.com/u/25359161?v=4" width="150">](https://github.com/BryanOroxon) |
+:---------------------------------------------:|
+| **Bryan Oroxón** |
 
 ## Open Source ❤
 
