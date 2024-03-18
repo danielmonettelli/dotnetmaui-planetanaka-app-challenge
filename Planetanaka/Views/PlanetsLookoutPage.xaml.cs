@@ -15,5 +15,4 @@ public partial class PlanetsLookoutPage : ContentPage
         vm.LblNamePlanet = lblNamePlanet;
         vm.LblDescriptionPlanet = lblDescriptionPlanet;
     }
-
 }

@@ -51,7 +51,6 @@
             HeightRequest="145"
             ItemsSource="{Binding Planets}"
             SelectedItem="{Binding SelectedPlanet}"
-            SelectionChanged="collectionPlanets_SelectionChanged"
             SelectionMode="Single">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout
